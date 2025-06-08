@@ -17,4 +17,3 @@ int pre(ARVORE *);
 int em(ARVORE *);
 int pos(ARVORE *);
 int imprimeNO(ARVORE *);
-

@@ -60,6 +60,29 @@
 #include "resp.c"
 #endif
 
+
+ARVORE *busca_valor(ARVORE *r, int valor) {
+    if(r == NULL) return NULL;
+
+    if(r->valor == valor) return r;
+
+    if(r->valor > valor) return busca_valor(r->e, valor);
+    return busca_valor(r->d, valor);
+}
+
+ARVORE *busca_nome(ARVORE *r, const char *nome) {
+    if(r == NULL) return NULL;
+    if(strcmp(r->nome, nome) == 0) return r;
+
+    ARVORE *temp;
+
+    temp = busca_nome(r->e, nome);
+    if(temp) return temp;
+    temp = busca_nome(r->d, nome);
+    if(temp) return temp;
+    return NULL;
+}
+
 int main(int argc, char *argv[])
 {
     ARVORE *r;                  // A raiz da árvore
@@ -165,7 +188,7 @@ int main(int argc, char *argv[])
     /* Comentado abaixo porque não existe a função busca_valor
      * Você deve inmplementar ela
      * */
-    // resp = busca_valor(r, valor);
+    resp = busca_valor(r, valor);
 	
 	if (resp == NULL){
 		printf("%d não encontrado na árvore\n", valor);
@@ -178,9 +201,9 @@ int main(int argc, char *argv[])
     lestringARQ(nome, MAXSTR, stdin);
     
     /* Comentado abaixo porque não existe a função busca_nome
-     * Você deve inmplementar ela
+     * Você deve implementar ela
      * */
-    // resp = busca_nome(r, nome);
+    resp = busca_nome(r, nome);
 
 	if (resp == NULL){
 		printf("%s não encontrado na árvore\n", nome);

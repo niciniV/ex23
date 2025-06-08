@@ -22,31 +22,24 @@
 # arvore completa, ou seja, ja estao no arquivo precisamente
 # colocados para montar uma arvore completa
 #
-
 123
 123.5
 Fulano da Silva
-
 50
 234.45
 Beltrano
-
 300
 345.456
 Ciclano
-
 25
 2304.23
 Horarcio 
-
 60
 4000.45
 Gervazio
-
 250
 3450.0
 Antonela Fonseca
-
 500
 567.56
 Jose Carlos
