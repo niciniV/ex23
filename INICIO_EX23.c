@@ -92,6 +92,17 @@ double contabiliza(ARVORE *r) {
   return r->salario + soma_e + soma_d;
 }
 
+void desaloca(ARVORE *r) {
+  if (r == NULL) return;
+  
+  desaloca(r->e);
+  desaloca(r->d);
+  
+  // DEBUG 
+  // printf("Liberando nó com salário: %.2f (Endereço: %p)\n", r->salario, (void*)r);
+  free(r);
+}
+
 int main(int argc, char *argv[])
 {
     ARVORE *r;                  // A raiz da árvore
@@ -228,6 +239,8 @@ int main(int argc, char *argv[])
     printf("Total de salarios = R$ %7.2lf\n", totsal);
 	
     // DESALOCA
-    // desaloca(r);
+    desaloca(r);
+
+    return 0;
 }
 
