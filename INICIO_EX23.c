@@ -83,6 +83,15 @@ ARVORE *busca_nome(ARVORE *r, const char *nome) {
     return NULL;
 }
 
+double contabiliza(ARVORE *r) {
+  if (r == NULL) return 0;
+
+  double soma_e = contabiliza(r->e);
+  double soma_d = contabiliza(r->d);
+
+  return r->salario + soma_e + soma_d;
+}
+
 int main(int argc, char *argv[])
 {
     ARVORE *r;                  // A raiz da árvore
@@ -205,18 +214,19 @@ int main(int argc, char *argv[])
      * */
     resp = busca_nome(r, nome);
 
-	if (resp == NULL){
-		printf("%s não encontrado na árvore\n", nome);
-	} else {
-		printf("Achei %d\n", valor);
-		imprimeNO(resp);
-	}    
-	
-	// totsal = contabiliza(r);
+    if (resp == NULL) {
+      printf("%s não encontrado na árvore\n", nome);
+    } else {
+      printf("Achei %d\n", valor);
+      imprimeNO(resp);
+    }
+    
     /* A funcao contabiliza você implementa. Ela deve retornar a soma 
      * de todos os salários
-     * */
-	printf("Total de salarios = R$ %7.2lf\n", totsal);
+     * */	
+    totsal = contabiliza(r);
+    printf("Total de salarios = R$ %7.2lf\n", totsal);
+	
     // DESALOCA
     // desaloca(r);
 }
