@@ -53,6 +53,7 @@ int pre(ARVORE * r)
     imprimeNO(r);
     pre(r->e);
     pre(r->d);
+    return 1;
 }
 
 int em(ARVORE * r)
@@ -62,6 +63,7 @@ int em(ARVORE * r)
     em(r->e);
     imprimeNO(r);
     em(r->d);
+    return 1;
 }
 
 int pos(ARVORE * r)
@@ -71,6 +73,7 @@ int pos(ARVORE * r)
     pos(r->e);
     pos(r->d);
     imprimeNO(r);
+    return 1;
 }
 
 // Função para imprimir os dados de um único no, se existir
@@ -152,7 +155,7 @@ ARVORE *ledados(FILE * arq)
     if (t > MAXSTR) {
         fprintf(stderr, "ERRO arquivo. A linha %d tem um nome maior que %d cars suportado\n", lestringARQ(linha, 0, NULL), MAXSTR);
         fprintf(stderr, "Ignorado cars do nome que passam de %d cars\n", MAXSTR);
-        printf("Tam = %d\n", strlen(no->nome));
+        printf("Tam = %lu\n", strlen(no->nome));
     }
 
     no->e = NULL;
