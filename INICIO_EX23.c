@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #include <string.h>
 
-/* Nomes: 
+/* Nomes: Diogo Gonçalves Bonofre dos Santos (202413177) e Vinícius Amorim da Silveira (202413352)
+ * Responsabilidades: Diogo foi responsável por desenvolver as funções de soma dos salários e desalocação
+ * de memória. Vinícius foi responsável pela implementação das funções de busca por valor e nome. Os 2
+ * contribuíram um com o outro em dicas e dúvidas pontuais sobre as implementações e no processo de debug.
  * 
  * Considere uma árvore (nao vetor lista encadeada grafo)
  * 
@@ -53,6 +56,7 @@
 /* Eu ja tenho as respostas. As tres funcoes prontas no meu 
  * arquivo resp.c. Nao liberei ele, está só comigo.
  * 
+
  * Se definir a macro GABARITO tenta incluir as respostas
  * Uso para meus testes aqui.
  * */
@@ -228,7 +232,7 @@ int main(int argc, char *argv[])
     if (resp == NULL) {
       printf("%s não encontrado na árvore\n", nome);
     } else {
-      printf("Achei %d\n", valor);
+      printf("Achei %d\n", resp->valor);
       imprimeNO(resp);
     }
     
